@@ -5,6 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Erasty Victoria Wanjiru | Actress &middot; Model &middot; Voice</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<!-- Favicon — matches the loader image (circular crop of erasty 2.jpg) -->
+<link rel="icon" type="image/jpeg" href="assets/images/erasty 2.jpg"/>
+<link rel="apple-touch-icon" href="assets/images/erasty 2.jpg"/>
 <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body>
@@ -115,18 +118,44 @@
   <div class="featured-inner">
     <p class="section-label reveal">Featured Work</p>
     <h2 class="about-headline reveal reveal-delay-1">Icea Lion &mdash; <em>Best Showcase</em></h2>
+
     <div class="featured-video reveal reveal-delay-2">
-      <div class="video-responsive">
-        <video
-          src="assets/images/ICEA%20LION%20AD.mp4"
-          title="Icea Lion Advert"
-          controls
-          playsinline
-          preload="metadata"
-          loop
-          muted>
-          Your browser does not support the video tag.
-        </video>
+      <video
+        id="icealionVideo"
+        src="assets/images/ICEA LION AD.mp4"
+        playsinline
+        preload="metadata"
+        loop>
+      </video>
+      <!-- Custom play overlay -->
+      <div class="featured-video-overlay" id="icealionOverlay">
+        <button class="featured-play-btn" id="icealionPlayBtn" aria-label="Play Icea Lion Ad">
+          <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="12" cy="12" r="12" fill="rgba(106,17,203,0.85)"/>
+            <polygon points="10,7.5 18,12 10,16.5" fill="white"/>
+          </svg>
+        </button>
+        <div class="featured-play-label">
+          <span class="featured-brand-tag">ICEA LION</span>
+          <span class="featured-play-text">Play Ad</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="featured-meta reveal reveal-delay-3">
+      <div class="featured-meta-item">
+        <span class="featured-meta-label">Client</span>
+        <span class="featured-meta-value">Icea Lion Group</span>
+      </div>
+      <div class="featured-meta-divider"></div>
+      <div class="featured-meta-item">
+        <span class="featured-meta-label">Type</span>
+        <span class="featured-meta-value">Television Commercial</span>
+      </div>
+      <div class="featured-meta-divider"></div>
+      <div class="featured-meta-item">
+        <span class="featured-meta-label">Role</span>
+        <span class="featured-meta-value">Main Role</span>
       </div>
     </div>
   </div>
@@ -134,51 +163,101 @@
 
 <div class="section-divider"></div>
 
-<!-- COMMERCIAL REELS — Instagram iframes blocked, replaced with cards -->
-<!-- COMMERCIAL REELS — Facebook embeds (Instagram blocks iframes) -->
+<!-- COMMERCIAL REELS -->
 <section id="reels">
   <div class="reels-inner">
     <p class="section-label reveal">Commercial Reels</p>
     <h2 class="about-headline reveal reveal-delay-1">Featured <em>Campaigns</em></h2>
- 
+
     <div class="reels-grid">
-      <div class="reel-card reveal">
-        <video class="reel-embed" controls playsinline preload="metadata" loop muted>
-          <source src="assets/images/BIC%20LIGHTER.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div class="reel-card-footer">
-          <div class="reel-brand-pill">BIC</div>
-          <div class="reel-label">BIC Campaign</div>
+
+      <!-- BIC -->
+      <div class="reel-card reveal" data-brand="BIC">
+        <div class="reel-video-wrap">
+          <video
+            class="reel-video"
+            src="assets/images/BIC LIGHTER.mp4"
+            playsinline
+            preload="metadata"
+            loop>
+          </video>
+          <div class="reel-overlay">
+            <button class="reel-play-btn" aria-label="Play BIC Campaign">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="24" fill="rgba(106,17,203,0.8)"/>
+                <polygon points="20,14 36,24 20,34" fill="white"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="reel-footer">
+          <div class="reel-footer-top">
+            <span class="reel-brand-pill">BIC</span>
+            <span class="reel-duration"></span>
+          </div>
+          <div class="reel-title">BIC Lighter Campaign</div>
         </div>
       </div>
 
-      <div class="reel-card reveal reveal-delay-1">
-        <video class="reel-embed" controls playsinline preload="metadata" loop muted>
-          <source src="assets/images/send%20wave.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div class="reel-card-footer">
-          <div class="reel-brand-pill">Sendwave</div>
-          <div class="reel-label">Sendwave Campaign</div>
+      <!-- SENDWAVE -->
+      <div class="reel-card reveal reveal-delay-1" data-brand="Sendwave">
+        <div class="reel-video-wrap">
+          <video
+            class="reel-video"
+            src="assets/images/send wave.mp4"
+            playsinline
+            preload="metadata"
+            loop>
+          </video>
+          <div class="reel-overlay">
+            <button class="reel-play-btn" aria-label="Play Sendwave Campaign">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="24" fill="rgba(106,17,203,0.8)"/>
+                <polygon points="20,14 36,24 20,34" fill="white"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="reel-footer">
+          <div class="reel-footer-top">
+            <span class="reel-brand-pill">Sendwave</span>
+            <span class="reel-duration"></span>
+          </div>
+          <div class="reel-title">Sendwave Campaign</div>
         </div>
       </div>
 
-      <div class="reel-card reveal reveal-delay-2">
-        <video class="reel-embed" controls playsinline preload="metadata" loop muted>
-          <source src="assets/images/soft%20pads.mp4" type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-        <div class="reel-card-footer">
-          <div class="reel-brand-pill">Sofy Pads</div>
-          <div class="reel-label">Sofy Pads Campaign</div>
+      <!-- SOFY PADS -->
+      <div class="reel-card reveal reveal-delay-2" data-brand="Sofy">
+        <div class="reel-video-wrap">
+          <video
+            class="reel-video"
+            src="assets/images/soft pads.mp4"
+            playsinline
+            preload="metadata"
+            loop>
+          </video>
+          <div class="reel-overlay">
+            <button class="reel-play-btn" aria-label="Play Sofy Pads Campaign">
+              <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="24" cy="24" r="24" fill="rgba(106,17,203,0.8)"/>
+                <polygon points="20,14 36,24 20,34" fill="white"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="reel-footer">
+          <div class="reel-footer-top">
+            <span class="reel-brand-pill">Sofy Pads</span>
+            <span class="reel-duration"></span>
+          </div>
+          <div class="reel-title">Sofy Pads Campaign</div>
         </div>
       </div>
 
     </div>
- 
-    <!-- Follow link — same pattern as Apples Photography -->
-    <div style="margin-top:2.5rem; text-align:center;">
+
+    <div class="reels-follow reveal reveal-delay-3">
       <a href="https://www.instagram.com/victoriaerasty/" target="_blank" rel="noopener" class="btn-outline">
         Follow on Instagram
         <svg width="14" height="14" viewBox="0 0 16 16" fill="none" style="margin-left:6px;vertical-align:middle;">
@@ -186,7 +265,7 @@
         </svg>
       </a>
     </div>
- 
+
   </div>
 </section>
 
@@ -210,7 +289,7 @@
 
 <div class="section-divider"></div>
 
-<!-- EXPERIENCE (Screen & Stage after posters) -->
+<!-- EXPERIENCE -->
 <section id="experience">
   <div class="exp-inner">
     <div class="exp-header">
@@ -388,14 +467,75 @@
 
 <script src="assets/js/main.js"></script>
 <script>
+  /* ── Booking form ── */
   document.getElementById('bookingForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
     const projectType = document.getElementById('projectType').value;
     const message = document.getElementById('message').value;
-    const fullMessage = `Inquiry from: ${name}%0AEmail: ${email}%0AProject Type: ${projectType}%0AMessage: ${message}`;
+    const fullMessage = `Inquiry from: ${name}\nEmail: ${email}\nProject Type: ${projectType}\nMessage: ${message}`;
     window.open(`https://wa.me/254710504407?text=${encodeURIComponent(fullMessage)}`, '_blank');
+  });
+
+  /* ── Featured video (Icea Lion) custom play/pause ── */
+  (function() {
+    const video   = document.getElementById('icealionVideo');
+    const overlay = document.getElementById('icealionOverlay');
+    const playBtn = document.getElementById('icealionPlayBtn');
+    if (!video || !overlay || !playBtn) return;
+
+    function togglePlay() {
+      if (video.paused) {
+        video.play();
+        overlay.classList.add('hidden');
+      } else {
+        video.pause();
+        overlay.classList.remove('hidden');
+      }
+    }
+
+    playBtn.addEventListener('click', togglePlay);
+    video.addEventListener('click', function() {
+      if (!video.paused) {
+        video.pause();
+        overlay.classList.remove('hidden');
+      }
+    });
+    video.addEventListener('ended', function() {
+      overlay.classList.remove('hidden');
+    });
+  })();
+
+  /* ── Reel cards custom play/pause ── */
+  document.querySelectorAll('.reel-card').forEach(function(card) {
+    const video   = card.querySelector('.reel-video');
+    const overlay = card.querySelector('.reel-overlay');
+    const playBtn = card.querySelector('.reel-play-btn');
+    if (!video || !overlay || !playBtn) return;
+
+    // Pause all other reels, play this one
+    function playThisReel() {
+      document.querySelectorAll('.reel-video').forEach(function(v) {
+        if (v !== video) { v.pause(); }
+      });
+      document.querySelectorAll('.reel-card').forEach(function(c) {
+        if (c !== card) { c.querySelector('.reel-overlay').classList.remove('hidden'); }
+      });
+      video.play();
+      overlay.classList.add('hidden');
+    }
+
+    playBtn.addEventListener('click', playThisReel);
+    video.addEventListener('click', function() {
+      if (!video.paused) {
+        video.pause();
+        overlay.classList.remove('hidden');
+      }
+    });
+    video.addEventListener('ended', function() {
+      overlay.classList.remove('hidden');
+    });
   });
 </script>
 </body>
