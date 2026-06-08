@@ -449,11 +449,11 @@ nav.scrolled {
 .featured-video {
   position: relative;
   width: 100%;
+  aspect-ratio: 16 / 9;  /* locks container to exact video ratio — no empty space */
   margin-top: 2.5rem;
   border-radius: 14px;
   overflow: hidden;
   background: #080808;
-  /* Subtle glow border via box-shadow only — no padding-bottom trick */
   box-shadow:
     0 0 0 1px rgba(106,17,203,0.35),
     0 0 60px rgba(106,17,203,0.18),
@@ -467,14 +467,16 @@ nav.scrolled {
     0 40px 100px rgba(0,0,0,0.65);
 }
 
-/* The video itself — 16:9 aspect ratio, fills container */
+/* The video itself — fills the 16:9 container absolutely */
 #icealionVideo {
-  display: block;
+  position: absolute;
+  inset: 0;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: 100%;
   object-fit: cover;
   background: #080808;
   border-radius: 14px;
+  display: block;
 }
 
 /* Custom play overlay */
