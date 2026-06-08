@@ -922,3 +922,277 @@
 .footer-credit:hover {
   color: var(--purple);
 }
+
+/* ================================================================
+   PASTE THIS ENTIRE BLOCK AT THE VERY END OF assets/css/styles.css
+   ================================================================ */
+
+/* ── 1. YouTube embed fix (proper 16:9 aspect ratio) ── */
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 */
+  height: 0;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.video-responsive iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+/* Remove any old fixed-height iframe styles that may exist */
+.featured-video iframe {
+  position: static;
+  width: auto;
+  height: auto;
+}
+.featured-video {
+  max-width: 820px;
+  margin: 2rem auto 0;
+}
+
+/* ── 2. Instagram reel cards (replaces blocked iframes) ── */
+.reels-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.reel-card {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+.reel-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(130, 80, 255, 0.4);
+}
+
+.reel-thumb {
+  position: relative;
+  aspect-ratio: 9 / 14;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #1a0a2e 0%, #0d1b2a 100%);
+  overflow: hidden;
+}
+.reel-thumb::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.18;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    rgba(255,255,255,0.04) 10px,
+    rgba(255,255,255,0.04) 11px
+  );
+}
+/* Brand accent colours */
+.reel-thumb--bic {
+  background: linear-gradient(135deg, #1a1a3e 0%, #0a0a1a 100%);
+}
+.reel-thumb--bic::after {
+  content: 'BIC';
+  position: absolute;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5rem;
+  color: rgba(255, 165, 0, 0.12);
+  letter-spacing: 0.1em;
+}
+.reel-thumb--sendwave {
+  background: linear-gradient(135deg, #0a2a1a 0%, #051a0e 100%);
+}
+.reel-thumb--sendwave::after {
+  content: 'SW';
+  position: absolute;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 5rem;
+  color: rgba(0, 200, 100, 0.12);
+  letter-spacing: 0.1em;
+}
+.reel-thumb--sofy {
+  background: linear-gradient(135deg, #2a0a1a 0%, #1a0510 100%);
+}
+.reel-thumb--sofy::after {
+  content: 'SOFY';
+  position: absolute;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 4rem;
+  color: rgba(255, 80, 120, 0.12);
+  letter-spacing: 0.1em;
+}
+
+.reel-play-icon {
+  position: relative;
+  z-index: 2;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.reel-card:hover .reel-play-icon {
+  opacity: 1;
+}
+
+.reel-brand-badge {
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(8px);
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid rgba(255,255,255,0.15);
+  z-index: 2;
+}
+
+.reel-card-body {
+  padding: 1rem 1.2rem 1.4rem;
+}
+.reel-label {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+.reel-desc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.5);
+  line-height: 1.4;
+  margin: 0 0 0.9rem;
+}
+.reel-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #a78bfa;
+  text-decoration: none;
+  border: 1px solid rgba(167, 139, 250, 0.3);
+  padding: 6px 14px;
+  border-radius: 20px;
+  transition: background 0.2s, color 0.2s;
+}
+.reel-cta:hover {
+  background: rgba(167, 139, 250, 0.15);
+  color: #fff;
+}
+
+/* ── 3. Mobile hero improvements ── */
+@media (max-width: 768px) {
+  /* Stack hero vertically — image first, text below */
+  #hero {
+    flex-direction: column !important;
+    min-height: 100svh;
+    padding: 5rem 1.5rem 3rem;
+    gap: 2rem;
+    align-items: center;
+    text-align: center;
+  }
+
+  .hero-right {
+    order: -1; /* image on top */
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+
+  .hero-photo {
+    width: 100%;
+    height: auto;
+    max-height: 340px;
+    object-fit: cover;
+    border-radius: 50% 50% 40% 40%;
+  }
+
+  .hero-left {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .hero-name {
+    font-size: clamp(2.8rem, 14vw, 4.5rem) !important;
+    line-height: 1.05;
+  }
+
+  .hero-eyebrow,
+  .hero-tagline {
+    font-size: 0.85rem;
+  }
+
+  .hero-roles {
+    align-items: center;
+  }
+
+  .hero-role-item {
+    justify-content: center;
+    font-size: 0.8rem;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    max-width: 280px;
+    gap: 0.75rem;
+  }
+  .hero-cta .btn-primary,
+  .hero-cta .btn-outline {
+    text-align: center;
+    width: 100%;
+  }
+
+  .hero-vertical-text {
+    display: none; /* hides the rotated side text on mobile */
+  }
+
+  /* Reels grid stacks to 1 column on mobile */
+  .reels-grid {
+    grid-template-columns: 1fr;
+    max-width: 320px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .reel-thumb {
+    aspect-ratio: 16 / 9; /* landscape on mobile to save vertical space */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-name {
+    font-size: clamp(2.4rem, 15vw, 3.5rem) !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Tablet: reels in 2 columns */
+  .reels-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  /* Hero side-by-side but tighter */
+  #hero {
+    padding: 6rem 2.5rem 3rem;
+    gap: 2rem;
+  }
+  .hero-name {
+    font-size: clamp(3rem, 6vw, 5rem) !important;
+  }
+}
