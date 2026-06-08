@@ -1516,7 +1516,8 @@
 .featured-video {
   display: flex;
   justify-content: center;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+  margin-bottom: 0;
 }
 .video-responsive {
   position: relative;
